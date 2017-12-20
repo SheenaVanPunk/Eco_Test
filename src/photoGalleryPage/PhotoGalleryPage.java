@@ -6,6 +6,7 @@
 package photoGalleryPage;
 
 
+import domen.PhotoGallery;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import page.Page;
@@ -15,24 +16,36 @@ import page.Page;
  * @author qa
  */
 public class PhotoGalleryPage extends Page{
-    public void createNewGallery(WebDriver driver){
+    public PhotoGallery createNewGallery(WebDriver driver){
+        PhotoGallery pg = new PhotoGallery();
         addNewGallery(driver);
-        nameGallery(driver);
-        describeGallery(driver);
+        
+        String enteredTitle = nameGallery(driver);
+        pg.setTitle(enteredTitle);
+//        pg.setTitle(nameGallery(driver));
+        
+        //describeGallery(driver);
+        String desc = describeGallery(driver);
+        pg.setDescription(desc);
+        
         attachPhoto(driver);
+        
         clickSave(driver);
+        pg.setId(getIdFromWeb(driver));
+        
+        return pg;
     }
     
     private void addNewGallery(WebDriver driver){
         clickOnElement(driver, By.className("glyphicon-plus"));
     }
     
-    private void nameGallery(WebDriver driver){
-        sendTextToTitleField(driver, By.id("title"));
+    private String nameGallery(WebDriver driver){
+        return sendTextToTitleField(driver, By.id("title"));
     }
     
-    private void describeGallery(WebDriver driver){
-        sendTextToField(driver, By.id("description"));
+    private String describeGallery(WebDriver driver){
+        return sendTextToField(driver, By.id("description"));
     }    
     
     private void attachPhoto(WebDriver driver){
@@ -70,7 +83,9 @@ public class PhotoGalleryPage extends Page{
        clickOnElement(driver, By.xpath("//*[@id='rows-table']/tbody/tr[last()]/td[5]/div/button[2]/i"));
        clickOnElement(driver, By.cssSelector("#delete-warning-dialog > div > div > div.modal-footer > button.btn.btn-danger"));
    }
-            
+     public int getIdFromWeb(WebDriver driver){
+     return getIdFromLastRow(driver, "data-photo-gallery-id");
+     }
     
     
 }

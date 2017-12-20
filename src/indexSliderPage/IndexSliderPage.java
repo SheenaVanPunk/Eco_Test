@@ -94,5 +94,9 @@ public class IndexSliderPage extends Page{
          clickOnElement(driver, By.cssSelector("#delete-warning-dialog > div > div > div.modal-footer > button.btn.btn-danger > i"));
      }
      
+     public int getIdFromWeb(WebDriver driver){
+     return getIdFromLastRow(driver, "data-index-slide-id");
+     }
+     
      
 }

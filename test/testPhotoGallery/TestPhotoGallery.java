@@ -5,6 +5,7 @@
  */
 package testPhotoGallery;
 
+import dbConnection.DbConnection;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -30,12 +31,14 @@ public class TestPhotoGallery {
         
         lp = new LoginPage();
         lp.logIn(driver);
+        
+        DbConnection.getConnection();
     }
     
-    @AfterClass
-    public static void tearDownClass() {
-        driver.quit();
-    }
+//    @AfterClass
+//    public static void tearDownClass() {
+//        driver.quit();
+//    }
     
     @Before
     public void setUp() {

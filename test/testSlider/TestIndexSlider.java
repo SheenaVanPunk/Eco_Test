@@ -42,10 +42,10 @@ public class TestIndexSlider {
         lp.logIn(driver);
     }
     
-    @AfterClass
-    public static void tearDownClass() {
-        driver.quit();
-    }
+//    @AfterClass
+//    public static void tearDownClass() {
+//        driver.quit();
+//    }
     
     @Before
     public void setUp() {

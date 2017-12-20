@@ -7,7 +7,7 @@ package domen;
 
 public class PhotoGallery {
     private int id;
-    private char title;
+    private String title;
     private String description;
 
   public int getId(){
@@ -18,11 +18,11 @@ public class PhotoGallery {
       this.id = id;
   }
 
-    public char getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(char title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 

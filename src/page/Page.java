@@ -77,6 +77,13 @@ public class Page {
 //        WebElement lastRow = rows.get(rows.size()-1);
 //        return lastRow;
     
+    public int getIdFromLastRow(WebDriver driver, String attributeName){
+    WebElement table = driver.findElement(By.id("rows-table"));
+    List<WebElement> rows = table.findElements(By.tagName("tr"));
+    WebElement lastRow = rows.get(rows.size()-1);
+    String id = lastRow.getAttribute(attributeName);
+    return Integer.valueOf(id);
+}
     
     
 }

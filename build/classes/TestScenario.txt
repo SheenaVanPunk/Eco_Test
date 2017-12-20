@@ -1,5 +1,5 @@
 ##########################################################################################################################
-NAPOMENA: U nastavku je dat test scenarijo za koji treba napistai test skriptu. 
+NAPOMENA: U nastavku je dat test scenario za koji treba napistai test skriptu. 
 Ko pre zavrsetka kursa zavrsi sve stavke, pise u nastavku ovog teksta svoj test scenarijo za koji ce prosiriti skriptu.
 #########################################################################################################################
 
